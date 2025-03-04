@@ -9,6 +9,8 @@ const { HOST, EXPRESS_PORT, OLLAMA_PORT, APP_KEY } = process.env;
 
 app.use(cors());
 
+app.get("/", (req, res) => res.send("working..."));
+
 app.post('/ask', express.json(), async (req, res) => {
     const ollama_app_key = req.body.ollama_app_key;
 
