@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const app = express();
 
-const { EXPRESS_PORT, OLLAMA_PORT, APP_KEY } = process.env;
+const { HOST, EXPRESS_PORT, OLLAMA_PORT, APP_KEY } = process.env;
 
 app.use(cors());
 
@@ -46,6 +46,6 @@ app.post('/ask', express.json(), async (req, res) => {
     }
 });
 
-app.listen(EXPRESS_PORT, () => {
-    console.log(`Server running at http://localhost:${EXPRESS_PORT}`);
+app.listen(EXPRESS_PORT, HOST, () => {
+    console.log(`Server running at http://${HOST}:${EXPRESS_PORT}`);
 });
